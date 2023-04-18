@@ -40,6 +40,7 @@ class InfiniteList extends StatelessWidget {
     this.loadingBuilder,
     this.errorBuilder,
     this.separatorBuilder,
+    this.shrinkWrap = false,
   });
 
   /// {@template scroll_controller}
@@ -174,9 +175,16 @@ class InfiniteList extends StatelessWidget {
   /// {@endtemplate}
   final ItemBuilder itemBuilder;
 
+
+  /// {@template shrink_wrap}
+  /// Default to false.
+  /// {@endtemplate}
+  final bool shrinkWrap;
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      shrinkWrap: shrinkWrap,
       scrollDirection: scrollDirection,
       reverse: reverse,
       controller: scrollController,
